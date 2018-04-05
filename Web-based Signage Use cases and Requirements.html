@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://www.w3.org/2016/websigns/ucr/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Web-based Signage Use cases and Requirements</title>
+<script>
+(function () {
+  var els = ['section', 'article', 'aside', 'nav', 'header', 'footer', 'time'];
+  for (var i=0; i<els.length; i++ ) {
+    document.createElement(els[i]);
+  }
+})();
+</script>
+<link href="./Web-based Signage Use cases and Requirements_files/bg-final.css" rel="stylesheet">
+<style>
+body {
+	font-family: Verdana, YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+#sub-title {
+	font-size: 150%;
+	font-weight: bold;
+}
+dfn {
+	font-weight: bold;
+	font-style: normal;
+}
+dl {
+	margin-left: 1em;
+	font-size: 90%;
+}
+dl dt {
+	margin-bottom: 0.5em;
+}
+dl dd {
+	margin-bottom: 0.5em;
+}
+table {
+	margin: 1em auto;
+	border-top: 1px solid #e5eff8;
+	border-right: 1px solid #e5eff8;
+	border-collapse: collapse;
+}
+thead th {
+	border-bottom: 1px solid #e5eff8;
+	border-left: 1px solid #e5eff8;
+	background: #f4f9fe;
+	text-align: left;
+	color: #66a3d3;
+	padding: 0.3em 1em;
+	font-size: 90%;
+}
+tbody th, td {
+	color: #678197;
+	border-bottom: 1px solid #e5eff8;
+	border-left: 1px solid #e5eff8;
+	padding: 0.3em 1em;
+	text-align: left;
+	font-size: 90%;
+}
+table caption {
+	color: #678197;
+	font-weight: bold;
+	margin-bottom: 0.3em;
+	font-size: 90%;
+}
+code {
+	font-family: Consolas, monospace;
+}
+figure {
+	display: block;
+	text-align: center;
+}
+figcaption {
+	font-size: 90%;
+	font-style: italic;
+}
+.example {
+	margin-left: 2em;
+}
+i {
+	font-family: Consolas, monospace;
+}
+</style>
+</head>
+<body>
+<header class="head" id="head">
+	<p><a href="http://www.w3.org/"><img alt="W3C" height="48" src="./Web-based Signage Use cases and Requirements_files/w3c_home" width="72"></a></p>
+	<h1>Web-based Signage Use cases and Requirements</h1>
+	<p id="sub-title">Final Business Group Report
+		<time datetime="2015-11-21">21 November 2015</time>
+	</p>
+	<dl>
+		<!--
+		<dt>This Version:</dt>
+		<dd>TBD</dd>
+		<dt>Latest Published Version:</dt>
+		<dd>TBD</dd>
+		<dt>Latest Editor's Draft:</dt>
+		<dd>TBD</dd>
+		<dt>Previous Versions:</dt>
+		<dd>TBD</dd>
+		-->
+		<dt>Editor:</dt>
+		<dd>Futomi Hatano, Newphoria Corporation</dd>
+		<dd>Sunghan Kim, ETRI</dd>
+	</dl>
+	<p class="copyright">Copyright © 2015 <a href="http://www.w3.org/"><abbr title="World Wide
+   Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts
+   Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research
+   Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>), published by the <a href="http://www.w3.org/community/websignage/">Web-based Signage Business Group</a> under the <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> is available.</p>
+</header>
+<hr>
+<section>
+	<h2 id="abstract">Abstract</h2>
+	<p>"Web-based Signage Use cases and Requirements" provides use cases and requirements that indicate what Web-based Signage is. The aim of this document is to clear up how Web-based Signage is used and what functions are needed for Web-based Signage.</p>
+	<p>This document introduces some scenarios in the form of narratives as use cases. You can easily understand the reasons why each requirement is needed and how important it is. </p>
+</section>
+<section>
+	<h2 class="no-num no-toc" id="status-of-this-document">Status of this document</h2>
+	<p>This specification was published by the <a href="http://www.w3.org/community/websignage/">Web-based Signage Business Group</a>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a> there is a limited opt-out and other conditions apply. Learn more about <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.</p>
+</section>
+<section>
+	<h2>Conformance</h2>
+	<p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+	<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in the normative parts of this document are to be interpreted as described in RFC2119. For readability, these words do not appear in all uppercase letters in this document. <a href="https://www.w3.org/2016/websigns/ucr/#refsRFC2119">[RFC2119]</a></p>
+</section>
+<nav>
+	<h2 id="toc">Table of Contents</h2>
+	<ol class="toc">
+		<li><a href="https://www.w3.org/2016/websigns/ucr/#Introduction">1. Introduction</a></li>
+		<li><a href="https://www.w3.org/2016/websigns/ucr/#Purpose_of_this_draft_document">2. Purpose of this draft document</a></li>
+		<li><a href="https://www.w3.org/2016/websigns/ucr/#Terminology">3. Terminology</a></li>
+		<li> <a href="https://www.w3.org/2016/websigns/ucr/#Use_cases_and_Requirements">4. Use cases and Requirements</a>
+			<ol class="toc">
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R1_Making_contents_using_a_declarative_approach">R1. Making contents using a declarative approach</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R2_Showing_a_caption">R2. Showing a caption</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R3_Communication_with_a_personal_device_within_proximity">R3. Communication with a personal device within proximity</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R4_Discovered_by_personal_devices">R4. Discovered by personal devices</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R5_Audience_Mesurement">R5. Audience Mesurement</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R6_Getting_a_real-time_information_from_a_server">R6. Getting a real-time information from a server</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R7_Identifying_a_location_of_a_terminal">R7. Identifying a location of a terminal</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R8_Synchronizing_contents">R8. Synchronizing contents</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R9_Saving_contents_and_playing_saved_contents">R9. Saving contents and playing saved contents</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R10_Protecting_video_contents">R10. Protecting video contents</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R11_Saving_log_data">R11. Saving log data(basic &amp; with evidence)</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R12_Sending_information_to_a_server_in_real_time">R12. Sending information to a server in real time</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R13_Showing_contents_on_time">R13. Showing contents on time</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R14_Identifying_an_individual">R14. Identifying an individual</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R15_Capturing_a_screen_shot">R15. Capturing a screen shot</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R16_Seamless_transition_of_contents">R16. Seamless transition of contents</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R17_Interactivity_with_the_call">R17. Interactivity with the call</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R18_Live_video_streaming">R18. Live video streaming</a></li>
+				<li><a href="https://www.w3.org/2016/websigns/ucr/#R19_Prevent_displaying_time_conflicts">R19. Prevent displaying time conflicts between scheduled contents and even-driven contents</a></li>
+			</ol>
+		</li><li><a href="https://www.w3.org/2016/websigns/ucr/#Acknowledgements">5. Acknowledgements</a></li>
+	</ol>
+</nav>
+<section>
+	<h2 id="Introduction">1. Introduction</h2>
+	<p><i>This section is non-normative.</i></p>
+	<p>Nowadays, digital signage is prevalent widely and it is predicted that the market will continue to grow. Furthermore, it is expected that digital signage will have more useful functions, such as interactions between signs and personal devices.</p>
+	<p>Expanding the roles of digital signage will make it more useful and valuable for all people, and will be more essential for today's information-oriented society.</p>
+	<p>In the future, digital signage should:</p>
+	<ul>
+		<li>make life better for everyone</li>
+		<li>be more essential as social infrastructure</li>
+		<li> stimulate economies much more, including the following players.
+			<ul>
+				<li>electronic manufacturers</li>
+				<li>content creators, holders, aggregators, distributors</li>
+				<li>browser vendors</li>
+				<li>content management system vendors</li>
+				<li>telecoms</li>
+				<li>ad agencies</li>
+			</ul>
+		</li>
+	</ul>
+	<p>But the digital signage industry has some problems. Many digital signage systems are built by proprietary technologies. Web technologies are used in some systems, but there are interoperability problems. The systems are very costly now, and creating contents is costly as well. These problems prevent an expansion of the digital signage market.</p>
+	<p>The industry needs a common, open, cost-effective platform, which is, of course, an Open Web Platform.</p>
+	<p>If digital signage systems adopt an Open Web Platform, such as HTML5, and the contents of digital signage can be played on ordinary web browsers, then the problems of the industry are expected to be solved. Furthermore, using Open Web Technologies, digital signage could be more functional.</p>
+</section>
+<section>
+	<h2 id="Purpose_of_this_draft_document">2. Purpose of this draft document</h2>
+	<p>The Web-based Signage Business Group was organized to realize the future digital signage ecosystem using Open Web Technologies. The BG has published this document as a cornerstone for deep and detailed discussions to achieve the requirements using Open Web Technologies.</p>
+	<p>This document includes some sections of gap analysis, which are not normative. The sections suggest which existing technologies are available for the corresponding requirement and what kind of specifications should be newly developed at W3C or the other organizations. The sections don't make conclusions but simply say some of possibilities. The sections aim to start discussions and developments for achieving the corresponding requirements at the relative working groups.</p>
+</section>
+<section>
+	<h2 id="Terminology">3. Terminology</h2>
+	<p>The term <dfn id="term-terminal">terminal</dfn> means a device or a	set of devices composed of a display, a set top box, and so on.	A terminal provides a signage service to end-users. A terminal has a kind of a web browser or a web-based application runtime which can render HTML and CSS, and run JavaScript codes.</p>
+	<p>The term <dfn id="term-end-user">end-user</dfn> refers to a person who enjoys a signage service. An end-user watches or interacts with a terminal.</p>
+	<p>The term <dfn id="term-content">content</dfn> means video, audio, image, text or a combination of those that is part of the objects shown to end-users on a terminal.</p>
+	<p>The term <dfn id="term-content-provider">content provider</dfn> refers to an entity that owns or sells licensed content, such as videos, images, and information.</p>
+	<p>The term <dfn id="term-network-provider">network provider</dfn> means an organization that provides network connectivity. Network providers include telcos and Internet service providers.</p>
+	<p>The term <dfn id="term-service-provider">service provider</dfn> means an organization that provides a signage service. A service provider aggregates contents, and in some cases, buys contents, then creates a signage service using the contents and distributes the service to a terminal.</p>
+	<p>The term <dfn id="term-developer">developer</dfn> refers to a person who puts together contents so that they are shown properly on a terminal as a signage service. A developer uses mainly HTML, CSS and JavaScript. Generally, developers work for service providers.</p>
+	<p>The term <dfn id="term-ad-agency">ad agency</dfn> means an organization that aggregates ads and provides them to a service provider. In some cases, an ad agency is a service provider.</p>
+	<p>The term <dfn id="term-advertising-provider">advertising provider</dfn> means an organization which pays to an ad agency for ads.</p>
+	<p>The term <dfn id="term-location-owner">location owner</dfn> refers to a person or an organization owning a building or a place where terminals are placed.</p>
+</section>
+<section>
+	<h2 id="Use_cases_and_Requirements">4. Use cases and Requirements</h2>
+	<p>In this chapter, requirements and use cases are introduced. These are some fictitious narratives to explain use cases. From these use cases, we try to cover what the requirements are necessary for web-based signage standard. You can understand what is web-based signage and imagine the future of digital signage. Surely you will notice that web-based signage will make life better for everyone.</p>
+	<figure> <img src="data:image/png;base64,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" alt="">
+		<figcaption>Figure. Generic diagram for use case and scenario</figcaption>
+	</figure>
+	<p>The stories are set in a fictitious country in the near future. The characters in the stories are listed in the table below.</p>
+	<table>
+		<caption>
+		The profiles of the characters in the stories
+		</caption>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>Profile</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Monica</td>
+				<td>Female</td>
+				<td>21</td>
+				<td>She is a university student. She takes a bus to go to campus. Sometimes her father drives her. The other people in her family are made up of her father and mother, and her grandmother. They all live in a town near the sea.</td>
+			</tr>
+			<tr>
+				<td>Michael</td>
+				<td>Male</td>
+				<td>54</td>
+				<td>Monica's father. He works for a digital signage content studio. He is a developer who makes digital signage contents.</td>
+			</tr>
+			<tr>
+				<td>Lily</td>
+				<td>Female</td>
+				<td>52</td>
+				<td>Monica's mother.</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>Each use case is written according to the following template:</p>
+	<dl>
+		<dt>Rx. &lt;TITLE&gt;</dt>
+		<dd>A title and overview of the requirement</dd>
+		<dt>Use cases (one or more)</dt>
+		<dd>A title of use case</dd>
+		<dd>Scenario or description representing use cases</dd>
+		<dd>Schematic illustration (devices involved, work flows, etc.) (optional)</dd>
+		<dt>Motivation</dt>
+		<dd>Explanation of the benefit to the ecosystem</dd>
+		<dt>Gap analysis (optional)</dt>
+		<dd>Related existing standards</dd>
+		<dd>Considerations about the possibility of the requirement using existing standards</dd>
+		<dd>Necessity to develop new standards, if existing standards don't accomplish the requirement</dd>
+	</dl>
+	<section>
+		<h3 id="R1_Making_contents_using_a_declarative_approach">R1. Making contents using a declarative approach</h3>
+		<p>The declarative approach means a mark-up based control of contents. Information for playing contents is annotated in HTML tags.</p>
+		<p>The words convey important points to end-users. Reading the text, they can understand the important points, even if they don't watch any remaining thing to be shown in the display.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Basic advertisement]</h5>
+				<p>When Monica arrived at the shopping centre, she saw a big display mounted on the outside wall. She watches the display for a while. The display shows ads that play for 1 minute each. After 1 minute, a different ad is shown on the display. Some ads show static text and images, some ads show a long video. The content shown in the terminal are just like a slide-show for a presentation.</p>
+			</section>
+			<section>
+				<h5>[Authoring tool]</h5>
+				<p>Michael's team uses a content management system (CMS). They can create and deploy contents quickly with the aid of the CMS.</p>
+				<p>The CMS includes a content authoring tool. The tool allows developers to create basic views without scripting. They only put images, texts and video on a canvas, adjust the locations, and input some parameters, such as duration to show the view, and so on.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>A declarative approach make creating contents cost-effective. Everyone can create contents without programming. If the annotation format were standardized, anyone could develop JavaScript libraries for playing web-based signage contents.</p>
+			<p>A declarative approach is useful for not only developers but also vendors of authoring tools. If the annotation format were standardized, vendors could make tools easily.</p>
+			<p>This means that the declarative approach could make signage operations more cost-effective. Furthermore, this could achieve interoperability among terminals using ordinary web browser.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>There are 3 ways for a declarative approach.</p>
+			<dl>
+				<dt>HTML</dt>
+				<dd>
+					<p>We can use <a href="http://www.w3.org/TR/html51/">HTML 5.1</a> for contents like web pages. Though HTML 5.1 doesn't define animations, we can use <a href="http://www.w3.org/TR/html51/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes">data-* attributes</a> specified in <a href="http://www.w3.org/TR/html51/">HTML 5.1</a> specification. The greatest benefit of data-* attributes is that there is a lot of flexibility.</p>
+					<p>If we define names and values of data-* attributes, we can handle it using JavaScript and CSS.</p>
+				</dd>
+				<dt>SMIL</dt>
+				<dd>
+					<p>We can use <a href="http://www.w3.org/TR/SMIL3/">SMIL</a> for signage contents. SMIL provides good declarative ability to describe timing, and event-based animation. Some signage system have already adopted SMIL for showing contents and animations. On the other hand, it does not formally allow for using Javascript which we also need.</p>
+					<p>Possible strategies for using SMIL include:</p>
+					<ul>
+						<li>build on top of a SMIL player, adding script capability and relevant APIs.</li>
+						<li>incorporate HTML content and use the scripting capability of HTML within the objects that are sequenced. This approach precludes using script to mainpulate the SMIL containers, which may not meet the requirements of use cases.</li>
+						<li>include SMIL (or possibly a subset) inline in an HTML browser, as HTML5 does with SVG and MathML.</li>
+					</ul>
+				</dd>
+				<dt>SCXML</dt>
+				<dd>
+					<p>When contents are separated to a presentation layer and a control layer, it's possible to use HTML/CSS for a presentation layer and <a href="http://www.w3.org/TR/scxml/">SCXML</a> for a control layer.</p>
+				</dd>
+			</dl>
+		</section>
+	</section>
+	<section>
+		<h3 id="R2_Showing_a_caption">R2. Showing a caption</h3>
+		<p>A caption means words that are shown underneath the display of a terminal.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Basic advertisement]</h5>
+				<p>When Monica arrived at the shopping centre, she saw a big display mounted on the outside wall. Now watching the display closely, she notices that it is transparent. It is a window.</p>
+				<p>She watches the display for a while. The display shows ads that play for 1 minute each. After 1 minute, a different ad is shown on the display.</p>
+				<p>Some ads show static text and images, some ads show a long video. When the contents are played, captions are shown most of the time. Though the ads are silent, Monica can read the captions to understand the contents in detail.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Digital signage terminals outside are normally in a noisy environment. Even if the terminals support a speech function, people passing by can't hear the speech. Furthermore, the speech could be annoying for people who aren't interested in the content shown by the terminal. So captioning contents is essential for digital signage systems.</p>
+			<p>If the captions consist of text data, they can be useful in other scenarios. If personal devices such as smartphones are able to communicate with a digital signage terminal, they could get the captions in real time. That means that people can read or listen to captions using their smartphone. This is beneficial for visually impaired persons as well.</p>
+			<p>Captioning mechanism contributes the cost-efficiency for making ads using videos. Especially, the mechanism is useful when you want to change only the caption depending on the geo-location of the terminal, the season and so on.</p>
+			<p>Showing the explanation of ads or campaign makes people understand next action. For example, how to apply for a campaign and so on.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For video content, <a href="http://www.w3.org/TR/html51/semantics.html#the-track-element">the track element</a> and <a href="http://www.w3.org/TR/html51/semantics.html#text-track-api">text track API</a> specified in <a href="http://www.w3.org/TR/html51/">HTML 5.1</a> specification are applicable. The format of captions is necessary too. <a href="https://w3c.github.io/webvtt/">WebVTT</a> is applicable for the format.</p>
+			<p>Digital signage treat not only videos but also images and styled text. We can mark captions in HTML but there is no common captioning mechanism. Should we define common captioning mechanism?</p>
+		</section>
+	</section>
+	<section>
+		<h3 id="R3_Communication_with_a_personal_device_within_proximity">R3. Communication with a personal device within proximity</h3>
+		<p>When a user points or approximates his/her smartphone to a signage terminal, the terminal receive/send some kinds of information from/to the smartphone.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Getting more information]</h5>
+				<p>Watching the big display mounted on the outside wall, she finds an ad introducing an item that she has wanted for a long time. But she didn't know where it was sold. She finds a message on the ad, "Get details using infrared communication". So she runs an infrared communication app on her smartphone, getting the detailed information including the location of a shop selling the product in the shopping centre.</p>
+			</section>
+			<section>
+				<h5>[Ads in train]</h5>
+				<p>There are many displays in the train. Michael watches one of them for a while. It is showing ads all the time. He notices that the ads support infrared communication. Pointing his smartphone to the display, he gets the detailed information related to the ad.</p>
+			</section>
+			<section>
+				<h5>[Personal recommendation]</h5>
+				<p>Monica arrives at the entrance of the shopping centre. A display welcomes her. The display is tall and life-sized. The display is saying repeatedly:</p>
+				<p class="example"><i>Welcome to this shopping centre. We have a lot of much-valued items for you today. Please touch here with your smartphone. Thank you.</i></p>
+				<p>Touching the display with her smartphone, the web browser starts up, and a lot of information is displayed.</p>
+				<p>She finds a "Recommendation for you" link in the information, and she touches it. Some items are shown, but they are not a random selection. They are exactly what she wants.</p>
+			</section>
+			<section>
+				<h5>[Getting a coupon]</h5>
+				<p>Monica arrives at the entrance of the shop which he has been looking for. She finds a display which shows an appealing phrase:</p>
+				<p class="example"><i>Touch here with your smartphone to get a coupon giving you 20% off all items next time!</i></p>
+				<p>Of course, she touches the screen with her smartphone, and she gets a coupon.</p>
+				<p>Wondering if she can get more coupons, she tries again, but is rejected.</p>
+			</section>
+			<section>
+				<h5>[Augmented reality]</h5>
+				<p>Monica arrives at a boutique. There are many attractive dresses. She sees a display which is tall and life-sized. Standing in front of the display, she puts on a cute virtual dress in the display.</p>
+				<p>Some small pictures of dresses are shown at the bottom of the screen and when Monica touches one, the dress she was wearing changes in the display. All dresses shown in the screen are sold at the boutique.</p>
+				<p>She chooses her favorite dress from the screen. Though she hadn't planned on purchasing it, she wants it someday. So touching the screen with her smartphone, she gets the detailed information on the dress.</p>
+			</section>
+			<section>
+				<h5>[Automatic vending machine]</h5>
+				<p>Monica is very tired after walking around for a long time. She finds a drink vending machine. The whole front of the vending machine is covered with a touch display. Touching the screen, she selects a drink and, then touches the side of the screen with her smartphone for payment.</p>
+			</section>
+			<section>
+				<h5>[Shop information]</h5>
+				<p>There are some displays at the bus stop. One of them always shows ads. All of the ads introduce neighborhood shops, clinics, shopping centres, and so on.</p>
+				<p>Monica sees an interesting shop in the display. She wants to visit the shop, but does not have no enough time. Touching the display with her smartphone, she gets detailed information on the shop.</p>
+			</section>
+			<section>
+				<h5>[Neighborhood map]</h5>
+				<p>At the bus stop, there is also a big touch display that anyone can interact with. The display shows the time table, a neighborhood map, a list of neighborhood shops, and so on.</p>
+				<p>Monica's family has recently moved to the town, so she isn't familiar with it. Touching the display with her smartphone, she gets the all information shown on the display. Now she can interact with the application on her smartphone in same form as the display at the bus stop.</p>
+			</section>
+			<section>
+				<h5>[Kiosk]</h5>
+				<p>Michael often reads the newspaper in the morning not at home, but at the station or in a train on his smartphone. He purchases the newpaper only when he wants to read it, so he goes to the kiosk to check the newspapers as usual.</p>
+				<p>Newspapers are sold on the kiosk terminal device. Today's hot headlines are shown on the screen of the kiosk terminal. Michael finds some interesting news on the screen, so he purchases a digital newspaper by touching the screen with his smartphone.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>If smart phones can communicate with digital signage terminal, we can get useful location-oriented information. Digital signage will play a new role. Additionally, terminals with communication function will serve a new way to make relationship with customers for shops.</p>
+			<p>In many situations, there are many displays around. If all display communicate with personal devices, users can not identify a specified display.</p>
+			<p>There are two ways of communication between a signage terminal and a smart phone. One is pointing a smart phone to a signage terminal just like a remote control of TV. It's very simple and intuitive for humans. Another one is touching a terminal with a smart phone.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For pointing-approach, infrared may be useful in some situations. But APIs handling infrared is not developped in W3C.</p>
+			<p>For touching-approach, NFC is most appropriate for the use cases. We expect the effort of <a href="https://www.w3.org/community/web-nfc/">W3C Web NFC Community Group</a></p>
+		</section>
+		<section>
+			<h4>Related Working Groups</h4>
+			<ul>
+				<li><a href="http://www.w3.org/2012/sysapps/">System Applications Working Group</a></li>
+				<li><a href="https://www.w3.org/community/web-nfc/">Web NFC Community Group</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R4_Discovered_by_personal_devices">R4. Discovered by personal devices</h3>
+		<p>When a signage terminal communicates with a personal device, a personal devices need to discover a specified terminal at first.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Viewing the same document shown on a signage terminal at an office]</h5>
+				<p>Michael is in a meeting room with colleagues. He is about to make a presentation. His presentation slide are shown in a display. The meeting room is very large and the display is too small to recognize the letters in the presentation for all attendees of the meeting.</p>
+				<p>The colleagues run an app on their laptop or tablet. The app show a list of some terminals near the meeting room. They select an terminal which represents the display in front of them. Then, the app shows the same presentation.</p>
+			</section>
+			<section>
+				<h5>[Viewing the same contents shown on a signage terminal at a shopping centre]</h5>
+				<p>Monica is in a shopping centre. The main hall is very crowded. Some signage terminals seems to be showing interesting movies. She can't come close to the displays. She can't know what video is being played. She can't wait to watch the videos.</p>
+				<p>She takes out her smartphone from her pocket, runs an app. The app show a list of some terminals around her. She select one of the terminals. Then, the app plays the same video which one of the terminal is playing.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Currently, a signage terminal can reach only a certain limited amount of people, because viewers have to come so close to a terminal that they can watch the display directly. If you want to expand the reachability, terminals have to be equipped quite high and displays have to be so wider. This means that it costs you so match.</p>
+			<p>If the requirement is fulfilled, the reachability and the cost-efficiency are achieved and signage terminals will be more valuable as advertising media.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p><a href="http://www.w3.org/TR/web-intents/">Web Intents</a> is hopeful. If Web Intents can treat remote devices, it completely meets the requirement. Sony Mobile Communications and Sony Corporation has proposed "<a href="http://www.w3.org/TR/webintents-local-services/">Web Intents Addendum</a>" for local network service discovery. You can find more details on their <a href="http://www.w3.org/wiki/WebIntents/SonyMobile_-_Local_Network_Service_Discovery">wiki</a>.</p>
+			<p><a href="http://www.w3.org/TR/discovery-api/">Network Service Discovery</a> is possibly also hopeful. This API is based on UPnP. It have already been experimentally implemented by Opera.</p>
+			<ul>
+				<li><a href="http://dev.opera.com/articles/network-service-discovery-api/">Network Service Discovery API support in Opera</a></li>
+			</ul>
+		</section>
+		<section>
+			<h4>Related Woking Groups</h4>
+			<ul>
+				<li><a href="http://www.w3.org/2009/dap/">Device API WG (DAP)</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R5_Audience_Mesurement">R5. Audience Mesurement</h3>
+		<p>A camera will be a promising function with a lot of potential. It will bring new opportunities for business to the digital signage industry in the future. For the purpose of it, terminals must have not only an camera but also an mechanism for real-time video analysis.</p>
+		<section>
+			<h4>Use Cases</h4>
+			<section>
+				<h5>[Measurement of people passing by]</h5>
+				<p>The digital signage system has the ability to analyze people passing by. A camera is equipped in the terminals. The terminals always watch people who pass by it. Furthermore, they measure how long each person stays in front of them.</p>
+			</section>
+			<section>
+				<h5>[Identifying a basic profile of a person in front of a terminal]</h5>
+				<p>Monica is in front of a drink vending machine. Then the machine says "Diet cider is popular with ladies". When Michael is in front of it, it says "Diet cider is popular with men". It seems to guess the gender of a person in front of it.</p>
+				<p>The vending machine records the gender of the buyer. The operator who owns the vending machine use the data for their product line.</p>
+			</section>
+			<section>
+				<h4>Motivation</h4>
+				<p>If signage terminals have a power for real-time video analysis, signage systems can not only offer a new useful service to end-users but also get useful marketing data.</p>
+			</section>
+			<section>
+				<h4>Gap analysis</h4>
+				<p>For capturing video input, <a href="http://www.w3.org/TR/mediacapture-streams/">Media Capture and Streams</a> can be used.</p>
+				<p>The requirement doesn't need algorithms for video analysis. It needs the power for video analysis. In theory, <a href="http://www.w3.org/TR/2dcontext/">HTML Canvas 2D Context</a> and <a href="http://www.w3.org/TR/workers/">Web Workers</a> can be used. But it is skeptical about whether it would work well.</p>
+			</section>
+		</section>
+	</section>
+	<section>
+		<h3 id="R6_Getting_a_real-time_information_from_a_server">R6. Getting a real-time information from a server</h3>
+		<p>Currently, digital signage shows not only preset contents but also live contents. Additionally, digital signage plays a critical role in some situations. It conveys important and urgent information to people around it. A mechanism of receiving real-time notifications is mandatory for web-based signage.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Investment information]</h5>
+				<p>Lily is in the bank planning to withdrawal money from her savings account which has matured. As she waits for her turn, she goes to the digital signage terminal to get information on the new savings plan, investment tips, exchange rates, and stock quotation to find out if there is any good plan that she could invest. The terminal always shows latest financial information every second. As her turn comes up, she goes to the teller with the next investment plan for the money from her savings account.</p>
+			</section>
+			<section>
+				<h5>[Live news feeding]</h5>
+				<p>Michael woke up late in the morning and did not have time to check the morning news. On his way to his office, he sees the digital signage display installed on the exterior side of the bus. The display shows weather forecast, headline news, local news, and various events in form of a simplified text. In the subway train, Michael watches the signage display installed inside the train which shows the news in the morning rush hour. Michael can get live news and information from various signage devices on his way to his office.</p>
+			</section>
+			<section>
+				<h5>[Notice board]</h5>
+				<p>The station platform is more crowded than usual. Michael looks at the notice board. Usually, the time when the next train will come and some ads are shown on the notice board. But now, emergency information is displayed in a different form than usual. He notices that an accident has happened, causing delays in time schedules.</p>
+				<p>Thanks to the information, he can tel his boss via e-mail that he will be late to work.</p>
+			</section>
+			<section>
+				<h5>[Fire in disaster]</h5>
+				<p>Lily is walking in an underground shopping arcade. Many signage terminals are showing ads as usually. Suddenly, all terminals stop showing ads. They start to show a warning message with an arrow and are beeping loudly.</p>
+				<p class="example"><i>There is a fire! Go outside! The nearest exit is this way!</i></p>
+				<p>Following the instruction, Lily goes outside.</p>
+			</section>
+			<section>
+				<h5>[Earthquake]</h5>
+				<p>Monica is walking in a shopping centre building. Many signage terminals show ads as usual. Suddenly, all the terminals stop showing ads, and start showing a warning message and beeping loudly.</p>
+				<p class="example"><i>Earthquake! Watch out!</i></p>
+				<p>In this country, the Urgent Earthquake Detection and Alarm System is deployed. The system noticed a warning before the quake arrives. The earthquake is a big one. After a little while, all signage terminals display a tsunami.</p>
+				<p class="example"><i>Tsunami approaching. Hurry upstairs!</i></p>
+				<p>Monica hurries upstairs. Many people are there. After a while, all terminals notice that the alarm has been called off. A tsunami actually didn't come, fortunately.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Showing an important and urgent information in real time helps many people in some ways. In case of a disaster or an accident, many people's lives will be saved by information shown on a signage display.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>Especially, Conveying a disaster information is time-sensitive. In the situation, polling using HTTP isn't appropriate because it needs a certain amount of time to get information. A real-time server-push notification mechanism is required. The APIs as below are appropriate.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/websockets/">The WebSocket API</a></li>
+				<li><a href="http://www.w3.org/TR/eventsource/">Server-Sent Events</a></li>
+				<li><a href="http://www.w3.org/TR/push-api/">Push API</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R7_Identifying_a_location_of_a_terminal">R7. Identifying a location of a terminal</h3>
+		<p>A location means a latitude and a longitude where a terminal is located. In some situation, precise location information is needed. In some situations, only a state or a city is needed.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Ads based on a location]</h5>
+				<p>There are some displays at the bus stop. One of them always shows ads. All of the ads introduce neighborhood shops, clinics, shopping centres, and so on. The terminal reports the precise location data to the server. The server delivers appropriate ads to the terminal based on the location.</p>
+			</section>
+			<section>
+				<h5>[Information based on a location in a train]</h5>
+				<p>In the train, an ad for a brewery was shown. At the end of the ad, the brewery introduced the bar near a bus stop. Then, at the next station, the different drinking spot is introduced after the same movie.</p>
+			</section>
+			<section>
+				<h5>[Messages based on a location]</h5>
+				<p>At the station in the business district, Michael watched an ad for coffeehouse chain. The ad targets businessmen. The ad says "Well work with well coffee".</p>
+				<p>On the same day at the bus station in front of the university, Monica watched the same ad for the same coffeehouse chain. The ad targets students. The ad says "Clear your head before your class and exam".</p>
+				<p>Both of the ads are almost same. Only the messages are different.</p>
+			</section>
+			<section>
+				<h5>[Fire in disaster]</h5>
+				<p>Lily is walking in an underground shopping arcade. Many signage terminals are showing ads as usually. Suddenly, all terminals stop showing ads. They start to show a warning message with an arrow and are beeping loudly.</p>
+				<p class="example"><i>There is a fire! Go outside! The nearest exit is this way!</i></p>
+				<p>Following the instruction, Lily goes outside.</p>
+			</section>
+			<section>
+				<h5>[Earthquake]</h5>
+				<p>Monica is walking in a shopping centre building. Many signage terminals show ads as usual. Suddenly, all the terminals stop showing ads, and start showing a warning message and beeping loudly.</p>
+				<p class="example"><i>Earthquake! Watch out!</i></p>
+				<p>In this country, the Urgent Earthquake Detection and Alarm System is deployed. The system noticed a warning before the quake arrives. The earthquake is a big one. After a little while, all signage terminals display a tsunami.</p>
+				<p class="example"><i>Tsunami approaching. Hurry upstairs!</i></p>
+				<p>Monica hurries upstairs. Many people are there. After a while, all terminals notice that the alarm has been called off. A tsunami actually didn't come, fortunately.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>If a terminal can identify its location, it can show an best information based on its location dynamically. Identifying location enriches the value of digital signage.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>Geolocation API provides a way to identify a latitude and a longitude. But it doesn't provide a name of a state or a city. Practically, it's difficult to identify a state or a city from a latitude and longitude. Though Geolocation API Level 2 provides the function, <a href="https://lists.w3.org/Archives/Public/public-geolocation/2012Mar/0023.html">it has been frozen for now</a>.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/geolocation-API/">Geolocation API Specification</a></li>
+				<li><a href="http://www.w3.org/TR/geolocation-API-v2/">Geolocation API Specification Level 2</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R8_Synchronizing_contents">R8. Synchronizing contents</h3>
+		<p>Contents shown on a signage display are shown on personal devices. The motion of the contents on the signage display are synchronized with the other devices completely.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Watching course materials on a tablet]</h5>
+				<p>Monica is in her classroom. Her teacher starts the class. A big touch display is equipped in every class room at her university. Her teacher always uses the display, all the students have their own tablet, which they use in the classrooms.</p>
+				<p>The class begins. The teacher says in front of the big display:</p>
+				<p class="example"><i>Everyone, please get the material in your tablet.</i></p>
+				<p>In the display, the title of the material is shown: "<i>The theory of relativity</i>".</p>
+				<p>All the students activate an app. Some titles are listed in the app. When Monica selects the same title as that shown on the big classroom display, the material is shown in her tablet.</p>
+				<p>The teacher starts to explain the theory of relativity, touching the big display. Monica is looking at the material on her tablet. When the teacher interacts with the material, the same visual is shown on the student's tablets simultaneously.</p>
+				<p class="note">Watch the video made by Corning Incorporated: <cite><a href="https://youtu.be/jZkHpNnXLB0">A Day Made of Glass 2: Same Day. Expanded Corning Vision (2012)</a></cite></p>
+			</section>
+			<section>
+				<h5>[Showing slides on a number of displays at a conference]</h5>
+				<p>Michael sits in a big conference hole. The hole is very large and there are many attendees. There is a very big screen in front and some displays around in the hole. Every displays show the same slide. When a presenter change the slide, every displays are synchronized.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>The more of audiences, the more digital signage is valuable. For now, synchronizing contents requires AV cables. If a distance between displays is so far, the cost will be expensive. Additionally, it's difficult to move the position of displays.</p>
+			<p>If displays have a network connectivity, AV cables are unnecessary. It's easy to move the position of displays. Fulfilling the requirement will bring cost-efficiency and flexibility of facilities.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>To synchronize contents on the signage and other devices such as users' smartphones and tablets, there are two ways available.</p>
+			<p>One way is to employ a server between the signage and the devices. Using the WebSocket API and web server program implemented by an appropriate framework such as node.js, events or contents on the signage can be delivered to the others through the server.</p>
+			<p>Another way is based on the direct communication among web browsers, browsers of a signage and a user's device in this case, which has several advantages in public space. It can facilitate instant and temporal exchanges of dynamic events or contents for users near the signage. The current state-of-art, however, do not support communication between browsers. Though <a href="http://tools.ietf.org/wg/rtcweb/charters">IETF Rtcweb working group</a> and <a href="http://www.w3.org/2011/04/webrtc-charter.html">W3C WebRTC working group</a> are covering this issue, it is in the experimental stage.</p>
+			<p>Recently, google chromium project has proposed an extension API set to enable the browser's tab contents to be captured and transmitted using WebRTC("chrome.experimental.capture.getTabMedia", "chrome.experimental.capture.onTabCaptured", and "chrome.experimental.capture.getCapturedTabs").</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/websockets/">The WebSocket API</a></li>
+				<li><a href="http://www.w3.org/TR/webrtc/">WebRTC</a></li>
+				<li><a href="http://www.chromium.org/developers/design-documents/extensions/proposed-changes/apis-under-development/webrtc-tab-content-capture">WebRTC Tab Content Capture API</a></li>
+				<li>DataChannel (WebRTC)</li>
+			</ul>
+		</section>
+		<section>
+			<h4>Related Woking Groups</h4>
+			<p><a href="http://www.w3.org/2012/sysapps/">System Applications Working Group</a> or <a href="http://www.w3.org/2011/04/webrtc/">Web Real-Time Communications Working Group</a>? (WebRTC Tab Content Capture API)</p>
+		</section>
+	</section>
+	<section>
+		<h3 id="R9_Saving_contents_and_playing_saved_contents">R9. Saving contents and playing saved contents</h3>
+		<p>Digital signage is required to continue the service even if the network connection is dead. Web-based signage need the mechanism which enable us to saving contents and playing saved contents.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Playing saved contents in network trouble]</h5>
+				<p>Michael is a developer of digital signage. He set up many digital signage terminals around his office.</p>
+				<p>He knows that all the terminals worked well despite of losing their connection to the Internet. Every terminal always saves the contents it shows. The Internet connection was lost, but the terminals are playing the saved contents temporarily. That's why people passing by the terminals don't notice that the terminals have a network connection problem.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Actually, the requirement is mandatory for the digital signage industry. Web-based signage won't be adopted as a digital signage platform without fulfilling the requirement.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>The HTML5 Offline Web applications mechanism enable us to create application that works even when their network connection is unavailable. The author must prepare the manifest file to be include required files.</p>
+			<p>In the case of the application uses video element, if network connection is available then the User-Agent will receive the video file in streaming. Otherwise, if the network connection is unavailable, it play the pre-fetched and cached video file that describe in the manifest file.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/html51/browsers.html#offline">Offline Web applications</a></li>
+				<li><a href="http://www.w3.org/TR/FileAPI/">File API</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R10_Protecting_video_contents">R10. Protecting video contents</h3>
+		<p>Web based signage need a content protecting mechanism. Even if a signage terminal is stolen, licensed content data must not be available.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Showing licensed videos]</h5>
+				<p>Some content providers that provide videos force Michael's team to prevent them from being stolen. Some videos show celebrities. Such content providers don't permit use of the videos for digital signage systems without a content protection mechanism.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Attractive video contents are needed for digital signage industry. Especially, celebrities are most attractive as advertisements. But when you want to use such contents, the content protecting mechanism is mandatory.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For streaming, Web and TV IG has the same requirement. See Requirement document of Web and TV IG Media Pipeline TF.</p>
+			<ul>
+				<li><a href="http://www.w3.org/2011/webtv/wiki/MPTF/MPTF_Requirements#Content_Security_and_Digital_Rights_Management">Content Security and Digital Rights Management</a></li>
+			</ul>
+			<p>The HTML working group is developing <a href="http://www.w3.org/TR/encrypted-media/">Encrypted Media Extensions</a>. We expect the effort of the WG.</p>
+			<p>For video files saved in a storage, <a href="http://www.w3.org/TR/WebCryptoAPI/">Web Cryptography API</a>, which is being developed by Web Cryptography Working Group, is useful. We expect the effort of the WG.</p>
+		</section>
+		<section>
+			<h4>Related Woking Groups</h4>
+			<ul>
+				<li><a href="http://www.w3.org/2012/webcrypto/">Web Cryptography Working Group</a></li>
+				<li><a href="http://www.w3.org/html/wg/">HTML Working Group</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R11_Saving_log_data">R11. Saving log data(basic &amp; with evidence)</h3>
+		<p>Signage system reports many kinds of log data. Signage system must work even when the network is down. Additionally, log data in the situation of offline must be recorded in some way.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Measurement of display time for each content]</h5>
+				<p>The digital signage system always measures display time for each content. Ad agencies can see how long and when each of the contents had been shown. Even though the network is down, they can see the measuring result later. The terminal usually uploads the measuring result to the server in real time. When the network is down, the terminal starts to save the measuring results in itself. When the terminal detects a recovery of the network, it sends all the saved data to the server.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>When signage systems are used as advertisement media, ad agencies are always required to report log data by advertising providers. Even when the network is down, log data must be guaranteed to be available.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>To saving log data, we can use some APIs.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/webstorage/">Web Storage</a></li>
+				<li><a href="http://www.w3.org/TR/IndexedDB/">Indexed Database API</a></li>
+				<li><a href="http://www.w3.org/TR/file-writer-api/">File API: Writer</a> and <a href="http://www.w3.org/TR/file-system-api/">File API: Directories and System</a></li>
+			</ul>
+			<p>Thought some browsers had already implemented these APIs, every APIs impose a limitation of the total amount of space allowed for storage areas to use agents.</p>
+			<p>Web-based Signage need a way to expand the limitation without a permission and a way to know the size of the limitation and the size of the rest. For quota management, we can use an API as below.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/quota-api/">Quota Management API</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R12_Sending_information_to_a_server_in_real_time">R12. Sending information to a server in real time</h3>
+		<p>The requirement means sending some log data to a server whenever something happened in real time.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Live monitoring in ads measurement]</h5>
+				<p>Service providers have to always monitor whether their terminals are working well or not. Michael's company utilizes a monitoring system. When a terminal is down, the system reports an alert in real time.</p>
+			</section>
+			<section>
+				<h5>[Measurement of display time for each content]</h5>
+				<p>The digital signage system always measures display time for each content. Ad agencies can see how long and when each of the contents had been shown. Even though the network is down, they can see the measuring result later. The terminal usually uploads the measuring result to the server in real time. When the network is down, the terminal starts to save the measuring results in itself. When the terminal detects a recovery of the network, it sends all the saved data to the server.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Sending information to a server in real time helps the operation of the signage system.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>The requirement tolerates a little delay.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/websockets/">The WebSocket API</a></li>
+				<li><a href="http://www.w3.org/TR/eventsource/">Server-Sent Events</a></li>
+				<li><a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R13_Showing_contents_on_time">R13. Showing contents on time</h3>
+		<p>Showing contents on time is the fundamental function of digital signage. The contents registered in advance are displayed on time. Additionally, the same ad is shown on some displays at the same time.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Scheduled ad]</h5>
+				<p>Monica is now in a coffeehouse. She is waiting for her friends. She has more than 1 hour to the promised time. She have match time but nothing to do. She is watching a display showing ads long time.</p>
+				<p>She noticed that the duration of each ad is just 15 seconds or 30 seconds. the ads are shown in same order over and over again. Additionally, the ads starts just 0 second in each minute. It looks like a TV commercial.</p>
+			</section>
+			<section>
+				<h5>[Timed ad]</h5>
+				<p>After a while, new ad is shown suddenly. It's just 8:00. There are some displays out of the coffeehouse. She can see the displays. Watching the displays, she notice that same ad are shown.</p>
+			</section>
+			<section>
+				<h5>[Timed caption]</h5>
+				<p>In September Monica watched an ad for breads. It showed a caption at the end; "Please apply Present-Campaign by October 15!".</p>
+				<p>On October 14, she watched the same ad, which had the same movie. However the caption is different. "Please apply this Campaign! You have JUST ONE DAY!!".</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>When digital signage is used for a ad media, advertising providers ask when and how long their ads will be shown. Ad agencies have to satisfy their demands and guarantee when and how long their ads were shown.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>It's easy to show a specified ad on a scheduled time using JavaScript. But generally, there are many ads which have to be shown a same terminal on a scheduled time. If we have a common playlist, it's even better.</p>
+			<p>For now, there is no common format for the playlist. If we need it, we can define it using XML or JSON. But we have to define what is needed in the format.</p>
+		</section>
+		<section>
+			<h4>Related</h4>
+			<ul>
+				<li><a href="http://www.w3.org/TR/ttaf1-dfxp/">Timed Text Markup Language (TTML) 1.0</a></li>
+				<li><a href="https://w3c.github.io/webvtt/">WebVTT</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R14_Identifying_an_individual">R14. Identifying an individual</h3>
+		<p>If a terminal can identify an individual, digital signage become more valuable as an advertising medium.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Personalized messaging]</h5>
+				<p>Monica and Michael watched the same ad on the display in front of the shopping center. After watching the ad, their smart phones rang, and a mail came each. The mail for Monica says; "A New thin and light lightweight laptop is now on sale. Now powerful discounts for student is available!". On the other hand, the mail for Michael says; "A new powerful laptop is now on sale.".</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>If a terminal can identify an individual, digital signage become more valuable as an advertising medium. For now, a terminal shows same contents for everyone. A terminal can't convey a personal message on a display. But if a terminal can identify an individual, it can convey a personal message while it shows same contents for everyone.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For conveying a personal message, there are some ways. For example e-mail or NFC and so on. But for identifying an individual, there are three issues. Firstly, how does a terminal identify an individual? Secondly, what kinds of information of a person are needed? Thirdly, how do we treat a privacy issue?</p>
+		</section>
+	</section>
+	<section>
+		<h3 id="R15_Capturing_a_screen_shot">R15. Capturing a screen shot</h3>
+		<p>Digital signage industry needs a mechanism for capturing a screen shot and saving the image and sending it to a server using JavaScript.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Monitoring terminals remotely]</h5>
+				<p>Michael's team monitors signage system 24-7 at the operation centre. There are some displays on which signage contents are shown. But they don't need to keep watching the displays. If contents aren't shown correctly, the system warns the problems automatically. All signage terminals send a screen shot to the operation centre periodically, the system determines whether ads had been shown properly or not.</p>
+			</section>
+			<section>
+				<h5>[Recording evidences that ads had been shown properly]</h5>
+				<p>An ad agency complained to Michael's team that the ad had not been shown on a terminal. The ad agency was so angry. The ad agency suspected that all terminals had not been working well. The signage system recorded the screen shots of all terminals. Michael's team investigated all records of the screen shots, they found that the number of terminals on which the ad had not been shown properly was only one. The ad agency cooled off.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Advertising providers are required to offer assurances ad agencies that ads had been shown on all screens properly.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For now, there is no standard mechanism for capturing a screen shot using JavaScript. It must support an asynchronous mechanism otherwise UA blocking occurs.</p>
+			<p>Recently, google chromium project has proposed an extension API set to enable the browser's tab contents to be captured and transmitted using WebRTC("chrome.experimental.capture.getTabMedia", "chrome.experimental.capture.onTabCaptured", and "chrome.experimental.capture.getCapturedTabs"). The API may be available.</p>
+			<ul>
+				<li><a href="http://www.chromium.org/developers/design-documents/extensions/proposed-changes/apis-under-development/webrtc-tab-content-capture">WebRTC Tab Content Capture API</a></li>
+			</ul>
+			<p>A similar use case is listed in a document published by Device APIs Working Group and Web Real-Time Communications Working Group.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/capture-scenarios/">MediaStream Capture Scenarios (Showcase demo on local screen (screen as an local media input source))</a></li>
+			</ul>
+			<p>Once we have a way for capturing a screen, we can send an image of a screen to a server with several ways. For examples, <a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest</a>, <a href="http://www.w3.org/TR/websockets/">The WebSocket API</a>, etc. For saving a image data, we can use <a href="http://www.w3.org/TR/IndexedDB/">Indexed Database API</a>, <a href="http://www.w3.org/TR/file-writer-api/">File API: Writer</a> and <a href="http://www.w3.org/TR/file-system-api/">File API: Directories and System</a>. But <a href="http://www.w3.org/TR/webstorage/">Web Storage</a> isn't recommended because it doesn't support asynchronous mechanism.</p>
+		</section>
+		<section>
+			<h4>Related Woking Groups</h4>
+			<ul>
+				<li><a href="http://www.w3.org/2012/sysapps/">System Applications Working Group</a> or <a href="http://www.w3.org/2011/04/webrtc/">Web Real-Time Communications Working Group</a>?</li>
+			</ul>
+		</section>
+		<section>
+			<h4>Related Documents</h4>
+			<ul>
+				<li><a href="http://www.w3.org/TR/webdriver/">WebDriver</a></li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<h3 id="R16_Seamless_transition_of_contents">R16. Seamless transition of contents</h3>
+		<p>When a digital signage terminal plays more than one contents in sequence, the digital signage display should show seamless and natural transition between the contents. The digital signage display can use various types of transition effect in this process.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Transition of contents]</h5>
+				<p>Monica is waiting for a bus at the bus stop. She notices a large signage display on top of a building across the street. The display is showing several 30-second advertisements in sequence. After one advertisement is finished, the transition to the next advertisement is very natural without time-loss. Monica did not notice any blinking, sudden transition, or time-loss between the advertisements.</p>
+				<p>The digital signage terminal prepares to play the next advertisement, before the current playing advertisement is over.</p>
+				<p>There can be various transition effects during the shift between the advertisements as long as Monica does not feel any discomfort in viewing.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>The advertisements shown in the web based signage system are developed in a form of a web page such as HTML5 and webapp. In case of ordinary web browser, loading of a new web page can cause blinking or delay. If this happen in the digital signage service, not only will the time be wasted but also the effect of the advertisement will be degraded.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>This requirement needs a way to preload contents and a way of transition effects for each advertisement.</p>
+			<p>For preloading contents, we can use <a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest</a> to fetch contents. To save the contents, we can use some APIs as blow.</p>
+			<ul>
+				<li><a href="http://www.w3.org/TR/html51/browsers.html#offline">Offline Web applications</a></li>
+				<li><a href="http://www.w3.org/TR/webstorage/">Web Storage</a></li>
+				<li><a href="http://www.w3.org/TR/IndexedDB/">Indexed Database API</a></li>
+				<li><a href="http://www.w3.org/TR/FileAPI/">File API</a></li>
+				<li><a href="http://www.w3.org/TR/file-writer-api/">File API: Writer</a></li>
+				<li><a href="http://www.w3.org/TR/file-system-api/">File API: Directories and System</a></li>
+			</ul>
+			<p>For transition effects, we can use <a href="http://www.w3.org/TR/css3-transitions/">CSS Transitions</a> and <a href="http://www.w3.org/TR/css3-animations/">CSS Animations</a> combined with JavaScript.</p>
+		</section>
+	</section>
+	<section>
+		<h3 id="R17_Interactivity_with_the_call">R17. Interactivity with the call</h3>
+		<p>Digital signage terminal can provide real-time communication with the call center of the advertised contents. This feature is useful for providing more detailed information and assistance to the end-user.</p>
+		<p>In general, advertisement in the digital signage device does not have enough information for the prospective buyer in making decision on buying a new product.</p>
+		<p>The digital signage terminal can be used to communicate with the assistants in the call center to get more information which can lead to immediate purchase.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Car Sales]</h5>
+				<p>Monica got consent from her parents in buying her first car. She goes to the famous automobile dealer shop where it is always crowded with people. The dealer shop is facilitated with many self-service kiosks which provide information of cars that are being sold.</p>
+				<p>As Monica manipulates the signage device, she found a car that she is interested in. However, it does not have the detailed information that she needs.</p>
+				<p>Monica presses a box in the touch screen for call contact with the call center. As the call is made through, the signage device sends the information of the car that Monica is interested in. Monica talks with the assistant and requests for more detailed information. The assistant kindly gives explanation to her questions and also sends various information to the signage device in form of pictures, video, text, sound, etc.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Sometimes, it is more convenient to talk to a person rather than manipulating digital signage devices. When a web-based signage terminal can provide real-time duplex communication, it can increase the effect of advertisement.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For communication with the call center or on-line assistants, <a href="http://www.w3.org/TR/webrtc/">WebRTC</a> can be used. WebRTC is under conjunctional work with <a href="http://datatracker.ietf.org/wg/rtcweb/documents/">IETF RTCWEB WG</a>.</p>
+			<p>Local media data can be captured by getUserMedia API that is under development within <a href="http://www.w3.org/TR/mediacapture-streams/">the Media Capture and streams</a>.</p>
+			<p>The on-line assistant can send the material or URL to the end-user through <a href="http://www.w3.org/TR/websockets/">The WebSocket API</a>. The digital signage terminal can display that information by fetching the material through <a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest</a>.</p>
+		</section>
+	</section>
+	<section>
+		<h3 id="R18_Live_video_streaming">R18. Live video streaming</h3>
+		<p>Digital signage can be used to provide live video streaming as well as advertisement contents. If digital signage terminal provide live video streaming, it can achieve more increased effect of advertisement.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Live sports]</h5>
+				<p>Michael is a big fan of national soccer game, and there was a big match yesterday evening. On his way home, he found a digital signage terminal that was installed in the square plaza. Many people were gathered already to watch the game. The digital signage terminal displays video streaming not only live sports but also some advertisements like beer and chips. Michael had no choice but to buy a bunch of beers for cheering up the victory of his team.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>Live streaming video is an quite effective method for getting an end-user's attentions. It is a good strategy to provide advertisement that is related to the content of live streaming. This makes it possible to increase the effect of advertisement and may leads to immediate purchase of products.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>For live video streaming in web-based signage, <a href="http://www.w3.org/TR/html51/semantics.html#the-video-element">The video element specified in HTML 5.1</a> can be used. The video element does not specify any particular real-time streaming protocol, but it allows the use of any protocols such as RTSP(Real-time Streaming Protocol, RFC2326), <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StreamingMediaGuide/StreamingMediaGuide.pdf">HLS(HTTP Live Streaming)</a>, and MPEG-DASH.</p>
+		</section>
+	</section>
+	<section>
+		<h3 id="R19_Prevent_displaying_time_conflicts">R19. Prevent displaying time conflicts between scheduled contents and even-driven contents</h3>
+		<p>Digital signage contents consist of scheduled contents which are supposed to be generally displayed on scheduled time and event-driven contents which are activated by user interaction. Time conflicts can occur between them so that it is necessary to provide a method to prevent the conflicts.</p>
+		<section>
+			<h4>Use cases</h4>
+			<section>
+				<h5>[Prevent user interaction]</h5>
+				<p>Monica is now in front of a digital signage. She tries to turn on a movie clip on the signage, which lasts for 10 minutes.</p>
+				<p>However, the movie clip is not activated because the current content on the display is about to be finished in 2 minutes and next content is strongly scheduled to be started on time. After 2 minutes, the next content is displayed on the display as scheduled.</p>
+			</section>
+			<section>
+				<h5>[Postpone a scheduled content]</h5>
+				<p>Lily is at a shopping center. She sees a digital signage and tries to get shopping guides from the signage. The signage display enables her to touch itself to access to various shopping information. She interacts with the signage while it has a schedule to display another advertisement at the time.</p>
+				<p>However, the signage owner does not want to bother user interaction service so that postpones the scheduled advertisement until she finishes her interaction. When she leaves the signage, it starts to display the scheduled advertisement.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Motivation</h4>
+			<p>There might be a time conflict between event driven contents and scheduled contents. Recently, digital signages are developed to be interactive so that they can provide additional information (event driven contents) in response to user inputs. Advertisers want a signage to display their paid advertisements (scheduled contents) on time. Advertisement is a major funding source for digital signages. Therefore, it is required to handle this issue.</p>
+		</section>
+		<section>
+			<h4>Gap analysis</h4>
+			<p>In SMIL 3.0, there is a discussion of unifying event based and scheduled timing for multimedia presentation. To integrate interactive content into SMIL 3.0, SMIL 1.0 scheduler is extended to support indeterminate timing and event-activation. See SMIL3.0 : <a href="http://www.w3.org/TR/SMIL3/smil-timing.html#q181">http://www.w3.org/TR/SMIL3/smil-timing.html#q181</a></p>
+		</section>
+	</section>
+</section>
+<section>
+	<h2 id="Acknowledgements">5. Acknowledgements</h2>
+	<p>Thanks to all the participants of <a href="http://www.w3.org/2012/06/signage/summary.html">the Web-based Signage Workshop held in Makuhari, Chiba, Japan in 14 - 15 June 2012</a>; they provided many insights, opinions, and suggestions.</p>
+	<p>Thanks also to everyone who has ever posted to the Web-based Signage BG mailing list.</p>
+</section>
+
+
+</body></html>
